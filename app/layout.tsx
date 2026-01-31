@@ -1,3 +1,5 @@
+import Link from "next/link";
+import Image from "next/image";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -24,10 +26,71 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        >
+          <nav style={{ borderBottom: "1px solid #eee" }}>
+    <div
+      style={{
+        maxWidth: 1000,
+        margin: "0 auto",
+        padding: "16px 24px",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+      }}
+    >
+      <Link
+        href="/"
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: 10,
+          textDecoration: "none",
+          color: "inherit",
+        }}
       >
-        {children}
+        <Image
+          src="/logo.png"
+          alt="D3SKTOP STUDIO PNG logo"
+          width={32}
+          height={32}
+        />
+        <strong>D3SKTOP STUDIO</strong>
+      </Link>
+
+      <div style={{ display: "flex", gap: 16 }}>
+        <Link href="/builds">Builds</Link>
+        <Link href="/pcs">PCs</Link>
+        <Link href="/contact">Contact</Link>
+      </div>
+    </div>
+  </nav>
+
+          {children}
+          <footer
+    style={{
+      borderTop: "1px solid #eee",
+      marginTop: 48,
+    }}
+  >
+    <div
+      style={{
+        maxWidth: 1000,
+        margin: "0 auto",
+        padding: "24px",
+        fontSize: 14,
+        display: "flex",
+        justifyContent: "space-between",
+        flexWrap: "wrap",
+        gap: 12,
+      }}
+    >
+      <span>© {new Date().getFullYear()} D3SKTOP STUDIO</span>
+      <span>Custom PC building & upgrades</span>
+    </div>
+  </footer>
+
       </body>
     </html>
   );
