@@ -47,6 +47,9 @@ export default function RootLayout({
             </Link>
 
             <div className="flex items-center gap-6 text-sm">
+              <Link href="/services" className="opacity-80 hover:opacity-100">
+                Services
+              </Link>
               <Link href="/builds" className="opacity-80 hover:opacity-100">
                 Builds
               </Link>
