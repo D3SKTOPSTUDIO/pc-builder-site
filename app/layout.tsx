@@ -26,71 +26,46 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-        <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-        >
-          <nav style={{ borderBottom: "1px solid #eee" }}>
-    <div
-      style={{
-        maxWidth: 1000,
-        margin: "0 auto",
-        padding: "16px 24px",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "space-between",
-      }}
-    >
-      <Link
-        href="/"
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: 10,
-          textDecoration: "none",
-          color: "inherit",
-        }}
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Image
-          src="/logo.png"
-          alt="D3SKTOP STUDIO PNG logo"
-          width={32}
-          height={32}
-        />
-        <strong>D3SKTOP STUDIO</strong>
-      </Link>
+        <nav className="border-b border-black/10">
+          <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
+            <Link
+              href="/"
+              className="flex items-center gap-2 text-inherit no-underline"
+            >
+              <Image
+                src="/logo.png"
+                alt="D3SKTOP STUDIO PNG logo"
+                width={32}
+                height={32}
+              />
+              <span className="font-semibold tracking-tight">
+                D3SKTOP STUDIO
+              </span>
+            </Link>
 
-      <div style={{ display: "flex", gap: 16 }}>
-        <Link href="/builds">Builds</Link>
-        <Link href="/pcs">PCs</Link>
-        <Link href="/contact">Contact</Link>
-      </div>
-    </div>
-  </nav>
-
-          {children}
-          <footer
-    style={{
-      borderTop: "1px solid #eee",
-      marginTop: 48,
-    }}
-  >
-    <div
-      style={{
-        maxWidth: 1000,
-        margin: "0 auto",
-        padding: "24px",
-        fontSize: 14,
-        display: "flex",
-        justifyContent: "space-between",
-        flexWrap: "wrap",
-        gap: 12,
-      }}
-    >
-      <span>© {new Date().getFullYear()} D3SKTOP STUDIO</span>
-      <span>Custom PC building & upgrades</span>
-    </div>
-  </footer>
-
+            <div className="flex items-center gap-6 text-sm">
+              <Link href="/builds" className="opacity-80 hover:opacity-100">
+                Builds
+              </Link>
+              <Link href="/pcs" className="opacity-80 hover:opacity-100">
+                PCs
+              </Link>
+              <Link href="/contact" className="opacity-80 hover:opacity-100">
+                Contact
+              </Link>
+            </div>
+          </div>
+        </nav>
+        <main className="mx-auto max-w-5xl px-6">{children}</main>
+        <footer className="mt-16 border-t border-black/10">
+          <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-3 px-6 py-6 text-sm opacity-80">
+            <span>© {new Date().getFullYear()} D3SKTOP STUDIO</span>
+            <span>Custom PC building & upgrades</span>
+          </div>
+        </footer>
       </body>
     </html>
   );
