@@ -18,8 +18,19 @@ export const metadata: Metadata = {
   title: "D3SKTOP STUDIO — Custom PC Builds",
   description:
     "D3SKTOP STUDIO builds custom gaming PCs and workstations, upgrades parts, and tunes thermals and noise.",
+  openGraph: {
+    title: "D3SKTOP STUDIO — Custom PC Builds",
+    description:
+      "Custom gaming PCs and workstations. Upgrades, thermals/noise tuning, and clean cable management.",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "D3SKTOP STUDIO — Custom PC Builds",
+    description:
+      "Custom gaming PCs and workstations. Upgrades, thermals/noise tuning, and clean cable management.",
+  },
 };
-
 
 export default function RootLayout({
   children,
@@ -28,10 +39,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="stylesheet" href="https://use.typekit.net/yok2lhd.css" />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        style={{
+          background: "var(--bg)",
+          color: "var(--fg)",
+        }}
       >
-        <nav className="border-b border-black/10">
+        <nav className="border-b" style={{ borderColor: "var(--border)" }}>
           <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
             <Link
               href="/"
@@ -64,8 +82,23 @@ export default function RootLayout({
             </div>
           </div>
         </nav>
-        <main className="mx-auto max-w-5xl px-6">{children}</main>
-        <footer className="mt-16 border-t border-black/10">
+        <main className="mx-auto max-w-5xl px-6">
+          <div
+            className="my-10 rounded-2xl border shadow-sm"
+            style={{
+              background: "var(--surface)",
+              color: "var(--surface-fg)",
+              borderColor: "var(--surface-border)",
+            }}
+          >
+            <div className="p-6 sm:p-8">{children}</div>
+          </div>
+        </main>
+
+        <footer
+          className="mt-16 border-t"
+          style={{ borderColor: "var(--border)" }}
+        >
           <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-3 px-6 py-6 text-sm opacity-80">
             <span>© {new Date().getFullYear()} D3SKTOP STUDIO</span>
             <span>Custom PC building & upgrades</span>

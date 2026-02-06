@@ -24,3 +24,42 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Better default selection */
+::selection {
+  background: rgba(0, 0, 0, 0.12);
+}
+
+/* Make links feel consistent */
+a {
+  text-underline-offset: 3px;
+}
+:root {
+  /* Nothing-ish dark base */
+  --bg: #0a0a0a;        /* page background */
+  --fg: #f5f5f5;        /* default text on dark */
+  --muted: #bdbdbd;     /* muted text on dark */
+  --border: rgba(255, 255, 255, 0.10);
+
+  /* Light surface (cards/content) */
+  --surface: #e5e5e5;   /* light grey */
+  --surface-fg: #111111;
+  --surface-muted: #3a3a3a;
+  --surface-border: rgba(0, 0, 0, 0.10);
+
+  /* Accents (we’ll tune later) */
+  --accent: #ffffff;
+}
+
+::selection {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+a {
+  text-underline-offset: 3px;
+}
+/* Headings use Alfarn 2 (Adobe Fonts). Body stays Geist. */
+h1, h2, h3, h4 {
+  font-family: alfarn-2, var(--font-geist-sans), system-ui, sans-serif;
+  letter-spacing: -0.02em;
+}

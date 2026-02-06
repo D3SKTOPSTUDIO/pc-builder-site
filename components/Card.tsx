@@ -15,7 +15,10 @@ export function Card({
   children?: ReactNode;
 }) {
   const content = (
-    <div className="overflow-hidden rounded-xl border border-black/10 hover:border-black/30">
+    <div
+      className="overflow-hidden rounded-xl border hover:opacity-95"
+      style={{ borderColor: "var(--surface-border)" }}
+    >
       <div className="aspect-video bg-black/5" />
       <div className="p-4">
         <div className="flex items-start justify-between gap-3">
@@ -28,10 +31,14 @@ export function Card({
         {children ? (
           <div className="mt-2 text-sm opacity-80">{children}</div>
         ) : (
-          <div className="mt-2 text-sm opacity-80">CPU • GPU • RAM • Storage</div>
+          <div className="mt-2 text-sm opacity-80">
+            CPU • GPU • RAM • Storage
+          </div>
         )}
 
-        {href ? <div className="mt-3 text-sm opacity-70">View details →</div> : null}
+        {href ? (
+          <div className="mt-3 text-sm opacity-70">View details →</div>
+        ) : null}
       </div>
     </div>
   );
