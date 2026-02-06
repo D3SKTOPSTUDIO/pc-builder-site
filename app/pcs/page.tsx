@@ -1,6 +1,12 @@
 import Link from "next/link";
 
 export default function PCsPage() {
+  const pcs = [
+    { slug: "1080p-gaming", status: "Available", name: "1080p Gaming PC", price: "$0 (placeholder)" },
+    { slug: "1440p-high-fps", status: "Available", name: "1440p High FPS Build", price: "$0 (placeholder)" },
+    { slug: "creator-workstation", status: "Sold", name: "Creator Workstation", price: "$0 (placeholder)" },
+  ] as const;
+
   return (
     <div className="py-12">
       <div className="flex flex-wrap items-end justify-between gap-4">
@@ -20,19 +26,20 @@ export default function PCsPage() {
       </div>
 
       <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {[
-          { status: "Available", name: "1080p Gaming PC", price: "$0 (placeholder)" },
-          { status: "Available", name: "1440p High FPS Build", price: "$0 (placeholder)" },
-          { status: "Sold", name: "Creator Workstation", price: "$0 (placeholder)" },
-        ].map((pc) => (
-          <div key={pc.name} className="rounded-xl border border-black/10 p-5">
+        {pcs.map((pc) => (
+          <Link
+            key={pc.slug}
+            href={`/pcs/${pc.slug}`}
+            className="block rounded-xl border border-black/10 p-5 hover:border-black/30"
+          >
             <div className="text-sm opacity-60">{pc.status}</div>
             <div className="mt-2 font-semibold">{pc.name}</div>
             <div className="mt-2 text-sm opacity-80">
               CPU • GPU • RAM • Storage (placeholders)
             </div>
             <div className="mt-4 text-sm font-medium">{pc.price}</div>
-          </div>
+            <div className="mt-3 text-sm opacity-70">View details →</div>
+          </Link>
         ))}
       </div>
     </div>
